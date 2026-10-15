@@ -1,0 +1,102 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Huskey Pocket · Guía de uso</title><link rel="stylesheet" href="/assets/projects/201a7517d8af6df2ca44.css"><link rel="canonical" href="https://rangomaker.com/productos/huskey/guia/"><meta property="og:title" content="Huskey Pocket · Guía de uso"><meta property="og:url" content="https://rangomaker.com/productos/huskey/guia/"></head><body><main><header><p class="brand">HUSKEY POCKET / DOCUMENTACIÓN</p><h1>Guía de uso</h1></header><p class="intro">Para configurar Huskey, usar tus cuentas completamente offline y conservar una copia. La bóveda, el generador y los códigos TOTP funcionan directamente en el dispositivo, sin conexión a internet ni servicios en la nube. USB y Bluetooth son conexiones locales opcionales para escribir en otro equipo. Describe los flujos presentes en el firmware; los nombres de algunas opciones pueden cambiar entre versiones.</p>
+<h2>Alimentación y batería</h2><p>Huskey puede funcionar con una batería interna LiPo de 3.7 V o alimentado directamente por USB-C. Con batería, no necesitas mantenerlo conectado para gestionar y consultar tus accesos. Alimentarlo por USB-C no requiere usar el teclado USB ni conectarlo a una computadora.</p><p>El cálculo de autonomía utiliza una batería LiPo 523450 de 1000 mAh. Estimación provisional y conservadora: unas 2½ horas de uso continuo con pantalla encendida. Este escenario supone 800 mAh utilizables y 300 mA de consumo medio desde la batería (2 h 40 min calculadas, redondeadas a la baja). El consumo de la placa completa todavía no se ha medido; la cifra no es una autonomía garantizada y debe validarse mediante pruebas de uso. La duración real depende del uso, el brillo, Bluetooth, la suspensión y el estado de la batería. La batería y el tiempo de carga de la versión ensamblada se confirmarán con el producto final.</p><h2>1. Configura el dispositivo</h2><ol><li>Al iniciar por primera vez, sigue el asistente para elegir idioma, fecha, hora, distribución del teclado, tiempo de bloqueo y tema.</li><li>Crea y confirma tu PIN de seis dígitos.</li><li>Comprueba que la fecha, la hora y la zona horaria sean correctas, especialmente si vas a usar códigos TOTP.</li></ol>
+<h2>2. Añade tus accesos</h2><p>En la bóveda, toca <strong>Agregar</strong> para crear una cuenta, un secreto o una nota. Introduce los campos de la entrada y guarda los cambios. Puedes organizar tus accesos por categorías y marcar favoritos.</p><p>El generador permite crear una contraseña de 8 a 32 caracteres, con opciones de mayúsculas, números y símbolos. Para trasladar cuentas existentes, usa <strong>Importar / Exportar</strong> con un archivo compatible en la microSD.</p>
+<h2>3. Consulta tus cuentas en Huskey</h2><p>Desbloquea la bóveda, busca una cuenta o abre uno de tus favoritos y consulta sus datos en pantalla. Puedes gestionar tus accesos y usar el generador y los códigos TOTP completamente offline, sin conexión a internet ni servicios en la nube.</p><h3>Escritura por USB o Bluetooth (opcional)</h3><p>Si quieres que Huskey escriba un dato en otro equipo, puedes usar esta función complementaria:</p><ol><li>En Ajustes, selecciona <strong>Modo teclado</strong>: USB o Bluetooth. En este firmware, cambiar entre ambos modos reinicia el dispositivo.</li><li>Para USB, conecta un cable de datos a un equipo que acepte un teclado USB HID. Para Bluetooth, desbloquea Huskey, empareja desde el equipo y confirma la solicitud numérica en la pantalla del dispositivo.</li><li>Ajusta <strong>Id. Entrada</strong> para que coincida con la distribución del equipo: español latinoamericano, español de España o estadounidense.</li><li>Abre una cuenta en Huskey. Coloca el cursor en el campo de destino del equipo conectado y toca el usuario, la contraseña o el código 2FA que quieres escribir.</li></ol><p class="note">Cuando utilizas la escritura opcional, Huskey funciona como un teclado. El dato se envía al campo que tenga el foco en ese momento.</p>
+<h2>4. Configura un código 2FA</h2><p>Al activar TOTP en un servicio, obtén su clave secreta Base32. En la cuenta correspondiente de Huskey, usa la opción para agregar 2FA e introduce esa clave. El dispositivo calcula códigos de seis dígitos que cambian cada 30 segundos.</p><p>Si el código no coincide, revisa fecha, hora y zona horaria del dispositivo, y que hayas guardado la clave del servicio correcto.</p>
+<h2>5. Guarda una copia recuperable</h2><ol><li>Desde <strong>Importar / Exportar</strong>, crea un respaldo cifrado <strong>.hky</strong> y elige su contraseña. Es independiente del PIN.</li><li>Copia el archivo fuera de Huskey, mediante la microSD o el modo de almacenamiento USB. El modo de almacenamiento es un modo separado del teclado.</li><li>Conserva la contraseña del respaldo de forma que puedas recuperarla si pierdes Huskey.</li><li>Para restaurar las cuentas, coloca el .hky en la microSD, selecciónalo en <strong>Importar / Exportar</strong> e introduce su contraseña.</li></ol><p>Los archivos CSV también permiten importar y exportar, pero contienen las credenciales en texto plano.</p>
+<h2>6. Antes de cambiar ajustes de protección</h2><p>En esta versión del firmware, cinco intentos fallidos de PIN restablecen el dispositivo. La bóveda señuelo puede activar un temporizador de restablecimiento y el modo perdido puede restablecer Huskey cuando se cumple el plazo de inactividad configurado.</p><p>Snatch Lock es opcional y sus umbrales requieren calibración en el equipo real. Conserva un respaldo externo antes de configurar opciones que puedan restablecer el dispositivo.</p>
+<h2>Si algo no responde</h2><ul><li><strong>No escribe:</strong> comprueba el modo de teclado, la conexión, que Huskey esté desbloqueado y el campo activo del equipo.</li><li><strong>Escribe otros símbolos:</strong> revisa que Id. Entrada coincida con la distribución del teclado del equipo.</li><li><strong>No abre el respaldo:</strong> utiliza la contraseña del archivo .hky, que puede ser distinta del PIN.</li></ul><footer>Información basada en el firmware, el modelo 3D y los datos del hardware proporcionados. Revisión: 10 de octubre de 2026. Este documento funciona sin conexión; puedes imprimirlo desde tu navegador.</footer></main><!-- Inter font license
+Copyright (c) 2016 The Inter Project Authors (https://github.com/rsms/inter)
+
+This Font Software is licensed under the SIL Open Font License, Version 1.1.
+This license is copied below, and is also available with a FAQ at:
+http://scripts.sil.org/OFL
+
+-----------------------------------------------------------
+SIL OPEN FONT LICENSE Version 1.1 - 26 February 2007
+-----------------------------------------------------------
+
+PREAMBLE
+The goals of the Open Font License (OFL) are to stimulate worldwide
+development of collaborative font projects, to support the font creation
+efforts of academic and linguistic communities, and to provide a free and
+open framework in which fonts may be shared and improved in partnership
+with others.
+
+The OFL allows the licensed fonts to be used, studied, modified and
+redistributed freely as long as they are not sold by themselves. The
+fonts, including any derivative works, can be bundled, embedded,
+redistributed and/or sold with any software provided that any reserved
+names are not used by derivative works. The fonts and derivatives,
+however, cannot be released under any other type of license. The
+requirement for fonts to remain under this license does not apply
+to any document created using the fonts or their derivatives.
+
+DEFINITIONS
+"Font Software" refers to the set of files released by the Copyright
+Holder(s) under this license and clearly marked as such. This may
+include source files, build scripts and documentation.
+
+"Reserved Font Name" refers to any names specified as such after the
+copyright statement(s).
+
+"Original Version" refers to the collection of Font Software components as
+distributed by the Copyright Holder(s).
+
+"Modified Version" refers to any derivative made by adding to, deleting,
+or substituting -- in part or in whole -- any of the components of the
+Original Version, by changing formats or by porting the Font Software to a
+new environment.
+
+"Author" refers to any designer, engineer, programmer, technical
+writer or other person who contributed to the Font Software.
+
+PERMISSION AND CONDITIONS
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of the Font Software, to use, study, copy, merge, embed, modify,
+redistribute, and sell modified and unmodified copies of the Font
+Software, subject to the following conditions:
+
+1) Neither the Font Software nor any of its individual components,
+in Original or Modified Versions, may be sold by itself.
+
+2) Original or Modified Versions of the Font Software may be bundled,
+redistributed and/or sold with any software, provided that each copy
+contains the above copyright notice and this license. These can be
+included either as stand-alone text files, human-readable headers or
+in the appropriate machine-readable metadata fields within text or
+binary files as long as those fields can be easily viewed by the user.
+
+3) No Modified Version of the Font Software may use the Reserved Font
+Name(s) unless explicit written permission is granted by the corresponding
+Copyright Holder. This restriction only applies to the primary font name as
+presented to the users.
+
+4) The name(s) of the Copyright Holder(s) or the Author(s) of the Font
+Software shall not be used to promote, endorse or advertise any
+Modified Version, except to acknowledge the contribution(s) of the
+Copyright Holder(s) and the Author(s) or with their explicit written
+permission.
+
+5) The Font Software, modified or unmodified, in part or in whole,
+must be distributed entirely under this license, and must not be
+distributed under any other license. The requirement for fonts to
+remain under this license does not apply to any document created
+using the Font Software.
+
+TERMINATION
+This license becomes null and void if any of the above conditions are
+not met.
+
+DISCLAIMER
+THE FONT SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO ANY WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT
+OF COPYRIGHT, PATENT, TRADEMARK, OR OTHER RIGHT. IN NO EVENT SHALL THE
+COPYRIGHT HOLDER BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+INCLUDING ANY GENERAL, SPECIAL, INDIRECT, INCIDENTAL, OR CONSEQUENTIAL
+DAMAGES, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF THE USE OR INABILITY TO USE THE FONT SOFTWARE OR FROM
+OTHER DEALINGS IN THE FONT SOFTWARE.
+
+--><nav class="portfolio-return" aria-label="Volver al portafolio"><a href="/">← Rango Maker</a></nav><link rel="stylesheet" href="/assets/projects/76b3643382a137f426b2.css"></body></html>

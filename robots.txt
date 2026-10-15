@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://rangomaker.com/sitemap.xml
