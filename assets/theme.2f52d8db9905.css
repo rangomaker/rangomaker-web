@@ -187,3 +187,9 @@
   .home-model-gallery{grid-template-columns:1fr;gap:18px}.home-model-showcase--gallery>.home-model-copy h3{font-size:29px}
   .home-model-label{padding-left:20px;padding-bottom:20px}.home-model-thumb{aspect-ratio:16/9}
 }
+
+/* ZeroDialer integrated into the product catalog and home projects. */
+.zerodialer-card .zerodialer-visual{background:#1c1e21}.zerodialer-visual .visual-top{color:#c8cbd0}.zerodialer-visual .visual-caption{display:none}.zerodialer-catalog-screen{position:absolute;left:50%;bottom:-2px;transform:translateX(-50%);height:calc(100% - 56px);width:auto;max-width:85%;object-fit:contain;border-radius:22px 22px 0 0;box-shadow:0 12px 35px #0005}
+.home-products>[data-rm-card="card-zerodialer"]{gap:0}.home-products>[data-rm-card="card-zerodialer"]>.rm-single-card-image{display:block;width:100%;height:auto;aspect-ratio:8/5;object-fit:contain;background:#1c1e21;padding:17px;border-radius:20px}.home-products>[data-rm-card="card-zerodialer"]>.home-product-copy{display:block;padding:24px 2px 0}.home-products>[data-rm-card="card-zerodialer"] .home-product-copy h3{font-size:32px;font-weight:550;line-height:1.2;letter-spacing:-1px;margin:8px 0 12px}.home-products>[data-rm-card="card-zerodialer"] .home-product-copy p{font-size:14px;line-height:1.8;color:var(--muted);margin:0}.home-products>[data-rm-card="card-zerodialer"] .text-link{margin-top:12px}
+@media(min-width:761px){.home-products:has(>[data-rm-card="card-zerodialer"]){grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}}
+@media(max-width:760px){.home-products>[data-rm-card="card-zerodialer"]>.rm-single-card-image{aspect-ratio:16/11;border-radius:17px}.home-products>[data-rm-card="card-zerodialer"]>.home-product-copy{padding-top:19px}.home-products>[data-rm-card="card-zerodialer"] .home-product-copy h3{font-size:29px}}
