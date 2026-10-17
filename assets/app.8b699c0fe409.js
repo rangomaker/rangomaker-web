@@ -98,4 +98,49 @@
     });
     dialog.addEventListener('close', () => { document.body.style.overflow = previousOverflow; });
   }
+
+  // Animate only the public presentation. Editing remains still and selectable.
+  const makerStage = document.querySelector('[data-maker-stage]');
+  if (makerStage) {
+    const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)');
+    let observer, frame = 0, x = 0, y = 0, paused = false;
+    const motionToggle = makerStage.querySelector('.maker-motion-toggle');
+    const editing = () => document.body.classList.contains('design-editing');
+    const reset = () => {
+      cancelAnimationFrame(frame); frame = 0;
+      makerStage.style.removeProperty('--maker-x'); makerStage.style.removeProperty('--maker-y');
+    };
+    const configure = () => {
+      observer?.disconnect(); reset();
+      if (motionToggle) motionToggle.hidden = motion.matches;
+      if (motion.matches || paused) { delete document.documentElement.dataset.makerMotion; return; }
+      document.documentElement.dataset.makerMotion = 'ready';
+      if (!('IntersectionObserver' in window)) return;
+      observer = new IntersectionObserver(entries => entries.forEach(entry => {
+        if (entry.isIntersecting) { entry.target.classList.add('maker-visible'); observer.unobserve(entry.target); }
+      }), { threshold: .06 });
+      document.querySelectorAll('.home-page>[data-design-instance],.home-page>[data-design-section]').forEach(section => {
+        if (section.contains(makerStage)) return;
+        section.classList.add('maker-reveal'); observer.observe(section);
+      });
+    };
+    configure(); motion.addEventListener('change', configure);
+    motionToggle?.addEventListener('click', () => {
+      paused = !paused; motionToggle.setAttribute('aria-pressed', String(paused));
+      motionToggle.setAttribute('aria-label', paused ? 'Reproducir animación' : 'Pausar animación'); configure();
+    });
+    makerStage.addEventListener('pointermove', event => {
+      if (motion.matches || paused || !finePointer.matches || editing()) return;
+      const bounds = makerStage.getBoundingClientRect();
+      x = (event.clientX - bounds.left - bounds.width / 2) / bounds.width * 20;
+      y = (event.clientY - bounds.top - bounds.height / 2) / bounds.height * 15;
+      if (!frame) frame = requestAnimationFrame(() => {
+        makerStage.style.setProperty('--maker-x', String(x)); makerStage.style.setProperty('--maker-y', String(y)); frame = 0;
+      });
+    });
+    makerStage.addEventListener('pointerleave', reset);
+    new MutationObserver(() => { if (editing()) reset(); }).observe(document.body, { attributes: true, attributeFilter: ['class'] });
+  }
+
 })();
